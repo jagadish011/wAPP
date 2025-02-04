@@ -12,10 +12,6 @@ const App = () => {
 
     if (typeof input === "string") {
       const coords = await getCityCoordinates(input);
-      if (!coords) {
-        alert("City not found. Try another.");
-        return;
-      }
       lat = coords.lat;
       lon = coords.lon;
     } else {
@@ -32,7 +28,7 @@ const App = () => {
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 m-auto blur-3xl">
           <div className="absolute inset-0 m-auto w-screen h-screen min-w-[1000px] overflow-hidden bg-white rounded-full scale-80">
-            <div 
+            <div
               className="absolute inset-0 m-auto w-screen h-screen animate-spin-slow"
               style={{
                 background: 'conic-gradient(from 0deg, #0088ff, #ff6600, #bbffa1, #4c00ff, #ab2666, #0099ff)',
@@ -44,7 +40,7 @@ const App = () => {
         </div>
       </div>
 
-      
+
       <div className="relative z-10 w-full">
         {!weather ? (
           <HomeScreen onLocationSelect={handleLocationSelect} />
